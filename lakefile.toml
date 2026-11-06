@@ -1,6 +1,6 @@
 name = "Weil"
 version = "0.1.0"
-defaultTargets = ["WeilFrontier", "Weil"]
+defaultTargets = ["Weil"]
 
 [leanOptions]
 pp.unicode.fun = true
@@ -20,10 +20,6 @@ rev = "16edf57de7933555826307a3d81b4391a3657a09"
 name = "Stacks"
 git = "https://github.com/AxiomMath/Stacks"
 rev = "012108f61d7f92a6ffc35ec3f263b6da5d438125"
-
-[[lean_lib]]
-name = "WeilFrontier"
-roots = ["WeilFrontier"]
 
 [[lean_lib]]
 name = "Weil"

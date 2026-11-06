@@ -10,7 +10,7 @@ Throughout, `k` is a finite field with `q` elements, `k̄` an algebraic closure,
 
 $$Z_X(t) = \exp\Bigl(\sum_{m \ge 1} \frac{|X(\mathbb F_{q^m})|}{m} t^m\Bigr) \in \mathbb Q[[t]]$$
 
-(`AlgebraicGeometry.zetaSeries`). For `X` smooth and proper over `k`, `P_ν(t) = det(1 − t·F | H^ν(X_k̄, ℚ_ℓ)) ∈ ℚ_ℓ[t]` is the characteristic polynomial of the geometric Frobenius on étale cohomology (`Weil.rationalFrobeniusCharpolyReverse`). Unless noted, all files are under `WeilFrontier/AlgebraicGeometry/EtaleCohomology/Trace/`.
+(`AlgebraicGeometry.zetaSeries`). For `X` smooth and proper over `k`, `P_ν(t) = det(1 − t·F | H^ν(X_k̄, ℚ_ℓ)) ∈ ℚ_ℓ[t]` is the characteristic polynomial of the geometric Frobenius on étale cohomology (`Weil.rationalFrobeniusCharpolyReverse`). Unless noted, all files are under `Weil/AlgebraicGeometry/EtaleCohomology/Trace/`.
 
 ### 1. Rationality
 
@@ -86,11 +86,11 @@ theorem Weil.natDegree_rationalFrobeniusCharpolyReverse_eq_bettiNumber
     (Weil.rationalFrobeniusCharpolyReverse B S₀ s₀ ℓ ν).natDegree = Scheme.bettiNumber y ν
 ```
 
-(`BettiNumber.lean`.) The proof goes through Artin's comparison theorem between étale and analytic cohomology, also formalized here (`WeilFrontier/AlgebraicGeometry/ComplexPoints/Betti/`). The intrinsic form `deg P_ν = dim_{ℚ_ℓ} H^ν(X_k̄, ℚ_ℓ)` is `Weil.natDegree_rationalFrobeniusCharpolyReverse` (`CharpolyDegree.lean`).
+(`BettiNumber.lean`.) The proof goes through Artin's comparison theorem between étale and analytic cohomology, also formalized here (`Weil/AlgebraicGeometry/ComplexPoints/Betti/`). The intrinsic form `deg P_ν = dim_{ℚ_ℓ} H^ν(X_k̄, ℚ_ℓ)` is `Weil.natDegree_rationalFrobeniusCharpolyReverse` (`CharpolyDegree.lean`).
 
 ### All in one statement, with Mathlib only
 
-The statement of the LeanEval problem [`weil_conjectures`](https://lean-lang.org/eval/problems/weil_conjectures/) (from [lean-eval](https://github.com/leanprover/lean-eval)), which uses only Mathlib definitions, is proved verbatim as `LeanEval.AlgebraicGeometry.WeilConjectures.weil_conjectures` in [WeilFrontier/LeanEval/WeilConjectures.lean](WeilFrontier/LeanEval/WeilConjectures.lean):
+The statement of the LeanEval problem [`weil_conjectures`](https://lean-lang.org/eval/problems/weil_conjectures/) (from [lean-eval](https://github.com/leanprover/lean-eval)), which uses only Mathlib definitions, is proved verbatim as `LeanEval.AlgebraicGeometry.WeilConjectures.weil_conjectures` in [Weil/LeanEval/WeilConjectures.lean](Weil/LeanEval/WeilConjectures.lean):
 
 ```lean
 theorem weil_conjectures (F : Type*) [Finite F] [Field F]
@@ -109,10 +109,9 @@ Here `A i` is the multiset of Frobenius eigenvalues on `H^i(X_F̄, ℚ_ℓ)`, se
 
 ## Structure
 
-`import Weil` brings in the whole library.
+`import Weil` brings in the whole library, [Weil](Weil/), about 980 modules written by AI agents. Every proof is kernel-checked; the code has not yet been reviewed by humans.
 
-* [WeilFrontier](WeilFrontier/): formalizations written by AI agents, about 980 modules. Every proof is kernel-checked; the code has not yet been reviewed by humans.
-* [Weil/Attr.lean](Weil/Attr.lean): the `weil` attribute. A declaration that formalizes an item of Freitag–Kiehl carries `@[weil "label"]`, where the label names the item (for example `thm_fk404_deligne_weil_conjecture` for FK IV.4, Deligne's theorem).
+A declaration that formalizes an item of Freitag–Kiehl carries the attribute `@[weil "label"]` (defined in [Weil/Attr.lean](Weil/Attr.lean)), where the label names the item, for example `thm_fk404_deligne_weil_conjecture` for FK IV.4, Deligne's theorem.
 
 The formalization follows the conventions of the Stacks Project in Lean: the étale site is its `SmallEtale` inside a `BigEtaleSite`, geometric points are over algebraically closed fields, and ℓ-adic sheaves are its strict projective systems `LAdicSheaf` (Tag 03UM). Where Freitag–Kiehl's printed definition is defective, the standard (EGA / Stacks / Mathlib) meaning is used, and the module docstrings say where a statement differs from the book.
 
