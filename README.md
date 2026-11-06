@@ -8,7 +8,7 @@ A Lean 4 (v4.34.0-rc2) formalization of the proof of the Weil conjectures, follo
 
 Throughout, `k` is a finite field with `q` elements, `k̄` an algebraic closure, `ℓ ≠ char k` a prime, and for a scheme `X` over `k` the *zeta series* is
 
-$$Z_X(t) = \exp\Bigl(\sum_{m \ge 1} \frac{\#X(\mathbb F_{q^m})}{m}\, t^m\Bigr) \in \mathbb Q[[t]]$$
+$$Z_X(t) = \exp\Bigl(\sum_{m \ge 1} \frac{|X(\mathbb F_{q^m})|}{m} t^m\Bigr) \in \mathbb Q[[t]]$$
 
 (`AlgebraicGeometry.zetaSeries`). For `X` smooth and proper over `k`, `P_ν(t) = det(1 − t·F | H^ν(X_k̄, ℚ_ℓ)) ∈ ℚ_ℓ[t]` is the characteristic polynomial of the geometric Frobenius on étale cohomology (`Weil.rationalFrobeniusCharpolyReverse`). Unless noted, all files are under `WeilFrontier/AlgebraicGeometry/EtaleCohomology/Trace/`.
 
@@ -28,7 +28,7 @@ theorem AlgebraicGeometry.exists_mul_zetaSeries_eq {X : Scheme.{u}} (f : X ⟶ S
 
 Let `X` be smooth and projective over `k` of pure dimension `n`, with Euler characteristic `χ = ∑ (−1)^ν dim H^ν(X_k̄, ℚ_ℓ)`. Then `nχ` is even and, in `ℚ_ℓ(t)`,
 
-$$Z_X\Bigl(\frac{1}{q^n t}\Bigr) = \varepsilon\, q^{n\chi/2}\, t^{\chi}\, Z_X(t), \qquad \varepsilon = \pm 1 .$$
+$$Z_X\Bigl(\frac{1}{q^n t}\Bigr) = \varepsilon q^{n\chi/2} t^{\chi} Z_X(t), \qquad \varepsilon = \pm 1 .$$
 
 ```lean
 theorem Weil.prod_aeval_inv_rationalFrobeniusCharpolyReverse_zpow_eq :
